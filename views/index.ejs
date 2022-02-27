@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/public/main.css'>
+</head>
+<body>
+ 
+    <div>
+        <h1>PriveCall</h1>
+        <input type="text" id="nickname" name="nickname" placeholder="Enter Display Name" size="20">
+        <table>
+            <thead>
+                <tr>
+                    <input type="text" id="join-link" name="join-link" placeholder="Enter Room ID" size="40">
+                    <td>
+                        <button id="join-btn1">Join Room</button> <!-- connect to room -->
+
+                    </td>
+                    <td>
+                        <button id="join-btn2">Create Room</button> <!-- create a room -->
+                    </td>
+                    <script>
+                        document.getElementById("join-btn1").addEventListener("click", function() {
+                            const nickname = document.getElementById("nickname").value;
+                            window.location.href = "/room/" + document.getElementById("join-link").value + "?nickname=" + nickname;
+                        });
+                        // upon clicking join-btn2, redirect to /room
+                        document.getElementById("join-btn2").addEventListener("click", function() {
+                            const nickname = document.getElementById("nickname").value;
+                            window.location.href = "/room?nickname=" + nickname;
+                        });
+                    </script>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+</body>
+</html>
